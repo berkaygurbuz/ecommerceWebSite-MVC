@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_ecommerceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Product_Sex">
+    <Key>
+      <PropertyRef Name="Product_Sex_ID" />
+    </Key>
+    <Property Name="Product_Sex_ID" Type="Int32" Nullable="false" />
+    <Property Name="Product_Sex_Text" Type="String" MaxLength="40" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="tbl_Product" Relationship="Self.FK_tbl_Product_Product_Sex" FromRole="Product_Sex" ToRole="tbl_Product" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tbl_Admin">
+    <Key>
+      <PropertyRef Name="AdminID" />
+    </Key>
+    <Property Name="AdminID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AdminName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AdminPassword" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Brand">
+    <Key>
+      <PropertyRef Name="Brand_ID" />
+    </Key>
+    <Property Name="Brand_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Brand_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_Product" Relationship="Self.FK_tbl_Product_tbl_Brand" FromRole="tbl_Brand" ToRole="tbl_Product" />
+  </EntityType>
+  <EntityType Name="tbl_Category">
+    <Key>
+      <PropertyRef Name="Product_CategoryID" />
+    </Key>
+    <Property Name="Product_CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Category_Name" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_Product" Relationship="Self.FK_tbl_Product_tbl_Category" FromRole="tbl_Category" ToRole="tbl_Product" />
+  </EntityType>
+  <EntityType Name="tbl_Product">
+    <Key>
+      <PropertyRef Name="Product_ID" />
+    </Key>
+    <Property Name="Product_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Brand_ID" Type="Int32" Nullable="false" />
+    <Property Name="Product_Info" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Product_Color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Product_CategoryID" Type="Int32" />
+    <Property Name="Product_Price" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Stock" Type="Int32" />
+    <Property Name="Product_Size" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Rating" Type="Double" Nullable="false" />
+    <Property Name="Product_Sex_ID" Type="Int32" Nullable="false" />
+    <Property Name="Total_Sold" Type="Int32" />
+    <NavigationProperty Name="Product_Sex" Relationship="Self.FK_tbl_Product_Product_Sex" FromRole="tbl_Product" ToRole="Product_Sex" />
+    <NavigationProperty Name="tbl_Brand" Relationship="Self.FK_tbl_Product_tbl_Brand" FromRole="tbl_Product" ToRole="tbl_Brand" />
+    <NavigationProperty Name="tbl_Category" Relationship="Self.FK_tbl_Product_tbl_Category" FromRole="tbl_Product" ToRole="tbl_Category" />
+    <Property Name="Image_Path" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="Product_Kid" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_Sex">
+    <Key>
+      <PropertyRef Name="Product_Sex_ID" />
+    </Key>
+    <Property Name="Product_Sex_ID" Type="Int32" Nullable="false" />
+    <Property Name="Sex_Text" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_User">
+    <Key>
+      <PropertyRef Name="User_ID" />
+    </Key>
+    <Property Name="User_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="User_Name" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="User_Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="User_Mail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="User_Password" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="User_Address" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="Sex_ID" Type="Int32" />
+    <Property Name="User_Phone" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_tbl_Product_Product_Sex">
+    <End Role="Product_Sex" Type="Self.Product_Sex" Multiplicity="1" />
+    <End Role="tbl_Product" Type="Self.tbl_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product_Sex">
+        <PropertyRef Name="Product_Sex_ID" />
+      </Principal>
+      <Dependent Role="tbl_Product">
+        <PropertyRef Name="Product_Sex_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Product_tbl_Brand">
+    <End Role="tbl_Brand" Type="Self.tbl_Brand" Multiplicity="1" />
+    <End Role="tbl_Product" Type="Self.tbl_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Brand">
+        <PropertyRef Name="Brand_ID" />
+      </Principal>
+      <Dependent Role="tbl_Product">
+        <PropertyRef Name="Brand_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Product_tbl_Category">
+    <End Role="tbl_Category" Type="Self.tbl_Category" Multiplicity="0..1" />
+    <End Role="tbl_Product" Type="Self.tbl_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Category">
+        <PropertyRef Name="Product_CategoryID" />
+      </Principal>
+      <Dependent Role="tbl_Product">
+        <PropertyRef Name="Product_CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="db_ecommerceEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Product_Sex" EntityType="Self.Product_Sex" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="tbl_Admin" EntityType="Self.tbl_Admin" />
+    <EntitySet Name="tbl_Brand" EntityType="Self.tbl_Brand" />
+    <EntitySet Name="tbl_Category" EntityType="Self.tbl_Category" />
+    <EntitySet Name="tbl_Product" EntityType="Self.tbl_Product" />
+    <EntitySet Name="tbl_Sex" EntityType="Self.tbl_Sex" />
+    <EntitySet Name="tbl_User" EntityType="Self.tbl_User" />
+    <AssociationSet Name="FK_tbl_Product_Product_Sex" Association="Self.FK_tbl_Product_Product_Sex">
+      <End Role="Product_Sex" EntitySet="Product_Sex" />
+      <End Role="tbl_Product" EntitySet="tbl_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Product_tbl_Brand" Association="Self.FK_tbl_Product_tbl_Brand">
+      <End Role="tbl_Brand" EntitySet="tbl_Brand" />
+      <End Role="tbl_Product" EntitySet="tbl_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Product_tbl_Category" Association="Self.FK_tbl_Product_tbl_Category">
+      <End Role="tbl_Category" EntitySet="tbl_Category" />
+      <End Role="tbl_Product" EntitySet="tbl_Product" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

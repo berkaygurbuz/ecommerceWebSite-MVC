@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fc9f3d1a50724cc8b7009e8c5fc2c899" Name="Diagram1">
+        <EntityTypeShape EntityType="db_ecommerceModel.Product_Sex" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_ecommerceModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_ecommerceModel.tbl_Admin" Width="1.5" PointX="2.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_ecommerceModel.tbl_Brand" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_ecommerceModel.tbl_Category" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_ecommerceModel.tbl_Product" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_ecommerceModel.tbl_Sex" Width="1.5" PointX="5.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_ecommerceModel.tbl_User" Width="1.5" PointX="4.75" PointY="8.25" IsExpanded="true" />
+        <AssociationConnector Association="db_ecommerceModel.FK_tbl_Product_Product_Sex" ManuallyRouted="false" />
+        <AssociationConnector Association="db_ecommerceModel.FK_tbl_Product_tbl_Brand" ManuallyRouted="false" />
+        <AssociationConnector Association="db_ecommerceModel.FK_tbl_Product_tbl_Category" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

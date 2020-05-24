@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_ecommerceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Product_Sex">
+    <Key>
+      <PropertyRef Name="Product_Sex_ID" />
+    </Key>
+    <Property Name="Product_Sex_ID" Type="int" Nullable="false" />
+    <Property Name="Product_Sex_Text" Type="nchar" MaxLength="40" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="tbl_Admin">
+    <Key>
+      <PropertyRef Name="AdminID" />
+    </Key>
+    <Property Name="AdminID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AdminName" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="AdminPassword" Type="nchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Brand">
+    <Key>
+      <PropertyRef Name="Brand_ID" />
+    </Key>
+    <Property Name="Brand_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Brand_Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_Category">
+    <Key>
+      <PropertyRef Name="Product_CategoryID" />
+    </Key>
+    <Property Name="Product_CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Category_Name" Type="nvarchar" MaxLength="40" />
+  </EntityType>
+  <EntityType Name="tbl_Product">
+    <Key>
+      <PropertyRef Name="Product_ID" />
+    </Key>
+    <Property Name="Product_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Brand_ID" Type="int" Nullable="false" />
+    <Property Name="Product_Info" Type="nvarchar" MaxLength="200" />
+    <Property Name="Product_Color" Type="nvarchar" MaxLength="50" />
+    <Property Name="Product_CategoryID" Type="int" />
+    <Property Name="Product_Price" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Stock" Type="int" />
+    <Property Name="Product_Size" Type="nvarchar" MaxLength="20" />
+    <Property Name="Rating" Type="float" Nullable="false" />
+    <Property Name="Product_Sex_ID" Type="int" Nullable="false" />
+    <Property Name="Total_Sold" Type="int" />
+    <Property Name="Image_Path" Type="nvarchar" MaxLength="400" />
+    <Property Name="Product_Kid" Type="nvarchar" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="tbl_Sex">
+    <Key>
+      <PropertyRef Name="Product_Sex_ID" />
+    </Key>
+    <Property Name="Product_Sex_ID" Type="int" Nullable="false" />
+    <Property Name="Sex_Text" Type="nvarchar" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="tbl_User">
+    <Key>
+      <PropertyRef Name="User_ID" />
+    </Key>
+    <Property Name="User_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="User_Name" Type="nvarchar" MaxLength="40" />
+    <Property Name="User_Surname" Type="nvarchar" MaxLength="50" />
+    <Property Name="User_Mail" Type="nvarchar" MaxLength="100" />
+    <Property Name="User_Password" Type="nvarchar" MaxLength="30" />
+    <Property Name="User_Address" Type="nvarchar" MaxLength="400" />
+    <Property Name="Sex_ID" Type="int" />
+    <Property Name="User_Phone" Type="int" />
+  </EntityType>
+  <Association Name="FK_tbl_Product_Product_Sex">
+    <End Role="Product_Sex" Type="Self.Product_Sex" Multiplicity="1" />
+    <End Role="tbl_Product" Type="Self.tbl_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product_Sex">
+        <PropertyRef Name="Product_Sex_ID" />
+      </Principal>
+      <Dependent Role="tbl_Product">
+        <PropertyRef Name="Product_Sex_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Product_tbl_Brand">
+    <End Role="tbl_Brand" Type="Self.tbl_Brand" Multiplicity="1" />
+    <End Role="tbl_Product" Type="Self.tbl_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Brand">
+        <PropertyRef Name="Brand_ID" />
+      </Principal>
+      <Dependent Role="tbl_Product">
+        <PropertyRef Name="Brand_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Product_tbl_Category">
+    <End Role="tbl_Category" Type="Self.tbl_Category" Multiplicity="0..1" />
+    <End Role="tbl_Product" Type="Self.tbl_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Category">
+        <PropertyRef Name="Product_CategoryID" />
+      </Principal>
+      <Dependent Role="tbl_Product">
+        <PropertyRef Name="Product_CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="db_ecommerceModelStoreContainer">
+    <EntitySet Name="Product_Sex" EntityType="Self.Product_Sex" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Admin" EntityType="Self.tbl_Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Brand" EntityType="Self.tbl_Brand" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Category" EntityType="Self.tbl_Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Product" EntityType="Self.tbl_Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Sex" EntityType="Self.tbl_Sex" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_User" EntityType="Self.tbl_User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_tbl_Product_Product_Sex" Association="Self.FK_tbl_Product_Product_Sex">
+      <End Role="Product_Sex" EntitySet="Product_Sex" />
+      <End Role="tbl_Product" EntitySet="tbl_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Product_tbl_Brand" Association="Self.FK_tbl_Product_tbl_Brand">
+      <End Role="tbl_Brand" EntitySet="tbl_Brand" />
+      <End Role="tbl_Product" EntitySet="tbl_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Product_tbl_Category" Association="Self.FK_tbl_Product_tbl_Category">
+      <End Role="tbl_Category" EntitySet="tbl_Category" />
+      <End Role="tbl_Product" EntitySet="tbl_Product" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

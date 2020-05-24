@@ -1,0 +1,114 @@
+﻿@model e_commerceMVC.Models.Entity.tbl_Product
+@{
+    ViewBag.Title = "ProductUpdate";
+    Layout = "~/Views/Shared/_AdminPanelLayout.cshtml";
+}
+
+<h2>ProductUpdate</h2>
+
+@using (Html.BeginForm("AdminUpdateProduct", "Admin", FormMethod.Post))
+{
+
+<table class="table table-striped table-dark rounded-lg w-50 mx-auto">
+    <tr>
+
+        <td>
+            @Html.LabelFor(m => m.Product_ID)
+        </td>
+        <td>
+            @Html.TextBoxFor(m => m.Product_ID)
+        </td>
+    </tr>
+    <tr>
+
+        <td>
+            @Html.LabelFor(m => m.Brand_ID)
+        </td>
+        <td>
+            @Html.TextBoxFor(m => m.Brand_ID)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(m => m.Product_Info)
+        </td>
+        <td>
+            @Html.TextBoxFor(m => m.Product_Info)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(m => m.Product_Color)
+        </td>
+        <td>
+            @Html.TextBoxFor(m => m.Product_Color)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(m => m.Product_CategoryID)
+        </td>
+        <td>
+            @Html.TextBoxFor(m => m.Product_CategoryID)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(m => m.Product_Price)
+        </td>
+        <td>
+            @Html.TextBoxFor(m => m.Product_Price)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(m => m.Stock)
+        </td>
+        <td>
+            @Html.TextBoxFor(m => m.Stock)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(m => m.Product_Size)
+        </td>
+        <td>
+            @Html.TextBoxFor(m => m.Product_Size)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(m => m.Rating)
+        </td>
+        <td>
+            @Html.TextBoxFor(m => m.Rating)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(m => m.Product_Sex_ID)
+        </td>
+        <td>
+            @Html.TextBoxFor(m => m.Product_Sex_ID)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(m => m.Total_Sold)
+        </td>
+        <td>
+            @Html.TextBoxFor(m => m.Total_Sold)
+        </td>
+    </tr>
+    <tr>
+        <td>
+        </td>
+        <td>
+            <div>
+                <button class="btn btn-outline-danger"> Güncelle </button>
+            </div>
+        </td>
+    </tr>
+</table>
+
+}

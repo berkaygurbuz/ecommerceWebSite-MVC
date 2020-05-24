@@ -1,0 +1,13 @@
+﻿.my-fa {
+    font-size: 1.8rem;
+}
+.my-font {
+    font-family: 'Quicksand', sans-serif;
+}
+.panel a{
+    color:white;
+}
+.panel a:hover{
+    text-decoration:none;
+}
+

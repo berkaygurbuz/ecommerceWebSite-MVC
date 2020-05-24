@@ -1,0 +1,284 @@
+﻿
+@{
+    ViewBag.Title = "Women";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Panel -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="mt-3">
+
+
+
+
+                <!--Grid row-->
+                <section class="">
+
+                    <!--Grid column-->
+                    <div class="border pr-5 pl-4 pt-4 pb-4">
+
+                        <!-- Filter panel -->
+                        <div class="mb-5">
+                            <h5 class="filter-title mb-3">Order by</h5>
+
+                            <div class="divider-small mb-3"></div>
+
+                            <ul class="list-unstyled link-black">
+                                <li class="mb-2">
+                                    <a href="" class="active my-filter-font">Default</a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="" class="my-filter-font">Popularity</a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="" class="my-filter-font">Rating</a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="" class="my-filter-font">Price: low to high</a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="" class="my-filter-font">Price: high to low</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Brands -->
+                        <div class="mb-5">
+
+                            <h5 class="filter-title mb-3">Brands</h5>
+
+                            <div class="divider-small mb-3"></div>
+
+                            <div class="pl-0 mb-2">
+                                <input type="checkbox" id="box-1">
+                                <label for="box-1">Jack & Jones</label>
+                            </div>
+                            <div class="pl-0 mb-2">
+                                <input type="checkbox" id="box-2">
+                                <label for="box-2">Lacoste</label>
+                            </div>
+                            <div class="pl-0 mb-2">
+                                <input type="checkbox" id="box-3">
+                                <label for="box-3">Calvin Klein</label>
+                            </div>
+                            <div class="pl-0 mb-2">
+                                <input type="checkbox" id="box-4">
+                                <label for="box-4">Pull & Bear</label>
+                            </div>
+                            <div class="pl-0 mb-2">
+                                <input type="checkbox" id="box-5">
+                                <label for="box-5">Bershka</label>
+                            </div>
+                            <div class="pl-0 mb-2">
+                                <input type="checkbox" id="box-6">
+                                <label for="box-6">Mavi</label>
+                            </div>
+
+                        </div>
+
+                        <!-- Size -->
+                        <div class="mb-5">
+
+                            <h5 class="filter-title mb-3">Size</h5>
+
+                            <div class="divider-small mb-3"></div>
+
+                            <div class="pl-0 mb-2">
+                                <input type="checkbox" id="box-7">
+                                <label for="box-7">X-SMALL</label>
+                            </div>
+                            <div class="pl-0 mb-2">
+                                <input type="checkbox" id="box-8">
+                                <label for="box-8">SMALL</label>
+                            </div>
+                            <div class="pl-0 mb-2">
+                                <input type="checkbox" id="box-9">
+                                <label for="box-9">MEDIUM</label>
+                            </div>
+                            <div class="pl-0 mb-2">
+                                <input type="checkbox" id="box-10">
+                                <label for="box-10">LARGE</label>
+                            </div>
+                            <div class="pl-0 mb-2">
+                                <input type="checkbox" id="box-11">
+                                <label for="box-11">X-LARGE</label>
+                            </div>
+                            <div class="pl-0 mb-2">
+                                <input type="checkbox" id="box-12">
+                                <label for="box-12">XX-LARGE</label>
+                            </div>
+
+                        </div>
+
+                        <!-- Price Range-->
+                        <div class="mb-5">
+
+                            <h5 class="filter-title mb-3">Price Range</h5>
+
+                            <div class="divider-small mb-3"></div>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Low Price" aria-label="Low Price" aria-describedby="basic-addon2">
+                            </div>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="High Price" aria-label="High Price" aria-describedby="basic-addon2">
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-primary price-button w-75">></button>
+                            </div>
+
+                        </div>
+
+
+
+
+                        <!-- Filter panel -->
+                        <div class="link-black">
+
+                            <h5 class="filter-title mb-3">Rating</h5>
+
+                            <div class="divider-small mb-3"></div>
+                            <div class="pl-0 mb-2">
+                                <input type="radio" id="box-13" name="selector">
+                                <label for="box-13">
+                                    <span class="my-star mb-1">
+                                        <i class="fa fa-star checked"></i>
+                                        <i class="fa fa-star checked"></i>
+                                        <i class="fa fa-star checked"></i>
+                                        <i class="fa fa-star checked"></i>
+                                        <i class="fa fa-star checked"></i>
+
+                                    </span>
+                                </label>
+                            </div>
+
+                            <div class="pl-0 mb-2">
+                                <input type="radio" id="box-14" name="selector">
+                                <label for="box-14">
+                                    <span class="my-star mb-1">
+                                        <i class="fa fa-star checked"></i>
+                                        <i class="fa fa-star checked"></i>
+                                        <i class="fa fa-star checked"></i>
+                                        <i class="fa fa-star checked"></i>
+                                        <i class="fa fa-star"></i>
+
+                                    </span>
+                                </label>
+                            </div>
+
+                            <div class="pl-0 mb-2">
+                                <input type="radio" id="box-15" name="selector" />
+                                <label for="box-15">
+                                    <span class="my-star mb-1">
+                                        <i class="fa fa-star checked"></i>
+                                        <i class="fa fa-star checked"></i>
+                                        <i class="fa fa-star checked"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </span>
+                                </label>
+                            </div>
+
+                            <div class="pl-0 mb-2">
+                                <input type="radio" id="box-16" name="selector" />
+                                <label for="box-16">
+                                    <span class="my-star mb-1">
+                                        <i class="fa fa-star checked"></i>
+                                        <i class="fa fa-star checked"></i>
+                                        <i class="fa fa-star "></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </span>
+                                </label>
+                            </div>
+
+                            <div class="pl-0 mb-2">
+                                <input type="radio" id="box-17" name="selector" />
+                                <label for="box-17">
+                                    <span class="my-star mb-1">
+                                        <i class="fa fa-star checked"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star "></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </span>
+                                </label>
+                            </div>
+
+
+
+
+                        </div>
+                        <!-- Filter panel -->
+
+                    </div>
+                    <!--Grid column-->
+
+                </section>
+                <!--Grid row-->
+
+
+            </div>
+
+
+        </div>
+
+        <!-- Right Part -->
+        <div class="col-lg-9 mt-3 ml-0">
+
+            <div class="card-deck">
+                @Html.Action("womenTopThree")
+
+            </div>
+
+            <!--Second Row-->
+            <div class="card-deck mt-3">
+                @Html.Action("womenSecondThree")
+            </div>
+
+            <!--Third Row-->
+            <div class="card-deck mt-3">
+                @Html.Action("womenThirdThree")
+            </div>
+
+
+            <!--Fourth Row-->
+            <div class="card-deck mt-3">
+                @Html.Action("womenFourthThree")
+            </div>
+
+            <!--Fiveth Row-->
+            <div class="card-deck mt-3">
+                @Html.Action("womenFivethThree")
+            </div>
+
+            <!--Sixth Row-->
+            <div class="card-deck mt-3">
+                @Html.Action("womenSixthThree")
+            </div>
+
+            <!-- Page Navigation -->
+            <div class="mt-4 pagination-border">
+                <nav class="mt-3">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item">
+                            <a class="page-link my-pagelink-color" href="#">Previous</a>
+                        </li>
+                        <li class="page-item"><a class="page-link my-pagelink-color" href="#">1</a></li>
+                        <li class="page-item active">
+                            <span class="page-link">
+                                2
+                                <span class="sr-only">(current)</span>
+                            </span>
+                        </li>
+                        <li class="page-item"><a class="page-link my-pagelink-color" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link my-pagelink-color" href="#">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>

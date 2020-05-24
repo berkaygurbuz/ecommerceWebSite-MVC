@@ -1,0 +1,57 @@
+﻿@using e_commerceMVC.Models.Entity
+@model List<tbl_Product>
+@{
+    ViewBag.Title = "ProductList";
+    Layout = "~/Views/Shared/_AdminPanelLayout.cshtml";
+}
+
+<h2>ProductList</h2>
+
+<div class="table-responsive">
+    <table class="table table-striped table-dark">
+        <thead>
+            <tr>
+                <th>Product ID</th>
+                <th>Brand ID</th>
+                <th>Product Info</th>
+                <th>Product Color</th>
+                <th>Product Category ID</th>
+                <th>Product Price</th>
+                <th>Stock</th>
+                <th>Product Size</th>
+                <th>Product Sex</th>
+                <th>Total Sold</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.Product_ID
+                    </td>
+                    <td>
+                        @item.Brand_ID
+                    </td>
+                    <td>
+                        @item.Product_Info
+                    </td>
+                    <td>
+                        @item.Product_Color
+                    </td>
+                    <td>
+                        @item.Product_CategoryID
+                    </td>
+                    <td>@item.Product_Price</td>
+                    <td>@item.Stock</td>
+                    <td>@item.Product_Size</td>
+                    <td>@item.Product_Sex_ID</td>
+                    <td>@item.Total_Sold</td>
+
+                </tr>
+
+            }
+        </tbody>
+    </table>
+</div>

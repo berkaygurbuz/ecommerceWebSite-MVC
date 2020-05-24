@@ -1,0 +1,89 @@
+﻿
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+
+    <!-- Boostrap CDN-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- FontAwosome CDN-->
+    <script src="https://kit.fontawesome.com/3c2bc376e8.js" crossorigin="anonymous"></script>
+    <!-- Google Font-->
+    <link href="https://fonts.googleapis.com/css?family=Bitter&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap" rel="stylesheet">
+    <!-- Slick Slider-->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <!--Custom stylesheet-->
+    <link href="~/Content/adminPanelStyle.css" rel="stylesheet" />
+
+</head>
+<body>
+
+    <div class="container-fluid ml-0">
+        <div class="row">
+            <!-- Panel -->
+            <div class="col-lg-2 col-md-2 panel pl-0">
+                <table class="table table-hover table-dark">
+                    <thead class="text-center">
+                        <tr>
+                            <th><img src="~/assets/logoson.png" class="img-fluid justify-text-center" /></th>
+                        </tr>
+                    </thead>
+                    <tbody >
+                        <tr>
+                            <td class="my-font"><i class="fas fa-user-tie mr-2 my-fa"></i>Profile</td>
+                        </tr>
+                        <tr>
+                            <td class="my-font"><i class="fas fa-search-plus mr-2 my-fa"></i>@Html.ActionLink("View Products", "ProductList")</td>
+                        </tr>
+                        <tr>
+                            <td class="my-font"><i class="fas fa-edit my-fa mr-2"></i>@Html.ActionLink("Create Product", "ProductAdd")</td>
+                        </tr>
+                        <tr>
+                            <td class="my-font"><i class="fas fa-redo my-fa mr-2"></i>@Html.ActionLink("Update Products", "UpdateProductList")</td>
+                        </tr>
+                        <tr>
+                            <td class="my-font"><i class="fas fa-trash-alt mr-2 my-fa"></i>@Html.ActionLink("Delete Product", "DeleteProductList")</td>
+                        </tr>
+                        <tr>
+                            <td class="my-font"><i class="fas fa-sign-out-alt mr-2 my-fa"></i>@Html.ActionLink("Add Categories", "CategoryAdd")</td>
+                        </tr>
+                        <tr>
+                            <td class="my-font"><i class="fas fa-pen-square mr-2 my-fa"></i>@Html.ActionLink("Edit/Delete Categories", "EditCategories")</td>
+                        </tr>
+                        <tr>
+                            <td class="my-font"><i class="fas fa-door-open mr-2 my-fa"></i>@Html.ActionLink("Sign Off","Index")</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Panel Left -->
+            <div class="col-lg-9 col-md-9 panel-left">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <!-- Scripts -->
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="~/Scripts/my-javascript.js"></script>
+</body>
+</html>

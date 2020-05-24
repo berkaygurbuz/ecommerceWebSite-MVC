@@ -1,0 +1,20 @@
+﻿@using e_commerceMVC.Models.Entity
+@model List<tbl_Product>
+
+@foreach (var item in Model)
+{
+    <div class="card">
+        <a class="mx-auto" href="~/Home/Product/@item.Product_ID" title="View"><img class="img-fluid" src="@item.Image_Path" /></a>
+        <div class="card-body">
+            <a class="brand" href="~/Home/Product/@item.Product_ID" title="Brand"><h4>@item.tbl_Brand.Brand_Name</h4></a>
+            <a class="product-details" href="~/Home/Product/@item.Product_ID" title="View"><p class="product-details">@item.Product_Info</p></a>
+            @*<a class="old-price my-price" href="#" title="View"><h5 class="old-price-color">$27.21</h5></a>*@
+            <a class="new-price my-price" href="~/Home/Product/@item.Product_ID" title="View"><h5>$@item.Product_Price</h5></a>
+        </div>
+    </div>
+
+}
+
+
+
+

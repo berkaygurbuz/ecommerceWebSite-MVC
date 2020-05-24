@@ -1,0 +1,91 @@
+﻿@model  e_commerceMVC.Models.Entity.tbl_Product
+@{
+    ViewBag.Title = "ProductAdd";
+    Layout = "~/Views/Shared/_AdminPanelLayout.cshtml";
+}
+
+<h2>ProductAdd</h2>
+
+<form method="post">
+    <table class="table table-striped table-dark rounded-lg w-50 mx-auto">
+        <tr>
+
+            <td>
+                Brand ID
+            </td>
+            <td>
+                <input type="text" name="Brand_ID" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Product Info
+            </td>
+            <td>
+                <input type="text" name="Product_Info" />
+            </td>
+        </tr>
+        <tr>
+            <td>Product Color</td>
+            <td>
+                <input type="text" name="Product_Color" />
+            </td>
+        </tr>
+        <tr>
+            <td>Product Category ID</td>
+            <td>
+                @Html.DropDownListFor(m => m.tbl_Category.Product_CategoryID, (((List<SelectListItem>)(ViewBag.gc ?? new List<SelectListItem>()))))
+            </td>
+        </tr>
+        <tr>
+            <td>Product Price</td>
+            <td>
+                <input type="text" name="Product_Price" />
+            </td>
+        </tr>
+        <tr>
+            <td>Stock</td>
+            <td>
+                <input type="text" name="Stock" />
+            </td>
+        </tr>
+        <tr>
+            <td>Product Size</td>
+            <td>
+                <input type="text" name="Product_Size" />
+            </td>
+        </tr>
+        <tr>
+            <td>Rating</td>
+            <td>
+                <input type="text" name="Rating" />
+            </td>
+        </tr>
+        <tr>
+            <td>Gender</td>
+            <td>
+                <input type="text" name="Product_Sex_ID" />
+            </td>
+        </tr>
+        <tr>
+            <td>Total Sold</td>
+            <td>
+                <input type="text" name="Total_Sold" />
+            </td>
+        </tr>
+        <tr>
+            <td>Image Path</td>
+            <td>
+                <input type="text" name="Image_Path" />
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <div>
+                    <button class="btn btn-outline-danger"> ADD </button>
+                </div>
+            </td>
+        </tr>
+    </table>
+</form>

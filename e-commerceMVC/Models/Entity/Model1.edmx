@@ -1,0 +1,402 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="db_ecommerceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Product_Sex">
+          <Key>
+            <PropertyRef Name="Product_Sex_ID" />
+          </Key>
+          <Property Name="Product_Sex_ID" Type="int" Nullable="false" />
+          <Property Name="Product_Sex_Text" Type="nchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="tbl_Admin">
+          <Key>
+            <PropertyRef Name="AdminID" />
+          </Key>
+          <Property Name="AdminID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdminName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="AdminPassword" Type="nchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_Brand">
+          <Key>
+            <PropertyRef Name="Brand_ID" />
+          </Key>
+          <Property Name="Brand_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Brand_Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_Category">
+          <Key>
+            <PropertyRef Name="Product_CategoryID" />
+          </Key>
+          <Property Name="Product_CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Category_Name" Type="nvarchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="tbl_Product">
+          <Key>
+            <PropertyRef Name="Product_ID" />
+          </Key>
+          <Property Name="Product_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Brand_ID" Type="int" Nullable="false" />
+          <Property Name="Product_Info" Type="nvarchar" MaxLength="200" />
+          <Property Name="Product_Color" Type="nvarchar" MaxLength="50" />
+          <Property Name="Product_CategoryID" Type="int" />
+          <Property Name="Product_Price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Stock" Type="int" />
+          <Property Name="Product_Size" Type="nvarchar" MaxLength="20" />
+          <Property Name="Rating" Type="float" Nullable="false" />
+          <Property Name="Product_Sex_ID" Type="int" Nullable="false" />
+          <Property Name="Total_Sold" Type="int" />
+          <Property Name="Image_Path" Type="nvarchar" MaxLength="400" />
+          <Property Name="Product_Kid" Type="nvarchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="tbl_Sex">
+          <Key>
+            <PropertyRef Name="Product_Sex_ID" />
+          </Key>
+          <Property Name="Product_Sex_ID" Type="int" Nullable="false" />
+          <Property Name="Sex_Text" Type="nvarchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="tbl_User">
+          <Key>
+            <PropertyRef Name="User_ID" />
+          </Key>
+          <Property Name="User_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User_Name" Type="nvarchar" MaxLength="40" />
+          <Property Name="User_Surname" Type="nvarchar" MaxLength="50" />
+          <Property Name="User_Mail" Type="nvarchar" MaxLength="100" />
+          <Property Name="User_Password" Type="nvarchar" MaxLength="30" />
+          <Property Name="User_Address" Type="nvarchar" MaxLength="400" />
+          <Property Name="Sex_ID" Type="int" />
+          <Property Name="User_Phone" Type="int" />
+        </EntityType>
+        <Association Name="FK_tbl_Product_Product_Sex">
+          <End Role="Product_Sex" Type="Self.Product_Sex" Multiplicity="1" />
+          <End Role="tbl_Product" Type="Self.tbl_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product_Sex">
+              <PropertyRef Name="Product_Sex_ID" />
+            </Principal>
+            <Dependent Role="tbl_Product">
+              <PropertyRef Name="Product_Sex_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Product_tbl_Brand">
+          <End Role="tbl_Brand" Type="Self.tbl_Brand" Multiplicity="1" />
+          <End Role="tbl_Product" Type="Self.tbl_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Brand">
+              <PropertyRef Name="Brand_ID" />
+            </Principal>
+            <Dependent Role="tbl_Product">
+              <PropertyRef Name="Brand_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Product_tbl_Category">
+          <End Role="tbl_Category" Type="Self.tbl_Category" Multiplicity="0..1" />
+          <End Role="tbl_Product" Type="Self.tbl_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Category">
+              <PropertyRef Name="Product_CategoryID" />
+            </Principal>
+            <Dependent Role="tbl_Product">
+              <PropertyRef Name="Product_CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="db_ecommerceModelStoreContainer">
+          <EntitySet Name="Product_Sex" EntityType="Self.Product_Sex" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Admin" EntityType="Self.tbl_Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Brand" EntityType="Self.tbl_Brand" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Category" EntityType="Self.tbl_Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Product" EntityType="Self.tbl_Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Sex" EntityType="Self.tbl_Sex" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_User" EntityType="Self.tbl_User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tbl_Product_Product_Sex" Association="Self.FK_tbl_Product_Product_Sex">
+            <End Role="Product_Sex" EntitySet="Product_Sex" />
+            <End Role="tbl_Product" EntitySet="tbl_Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Product_tbl_Brand" Association="Self.FK_tbl_Product_tbl_Brand">
+            <End Role="tbl_Brand" EntitySet="tbl_Brand" />
+            <End Role="tbl_Product" EntitySet="tbl_Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Product_tbl_Category" Association="Self.FK_tbl_Product_tbl_Category">
+            <End Role="tbl_Category" EntitySet="tbl_Category" />
+            <End Role="tbl_Product" EntitySet="tbl_Product" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="db_ecommerceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Product_Sex">
+          <Key>
+            <PropertyRef Name="Product_Sex_ID" />
+          </Key>
+          <Property Name="Product_Sex_ID" Type="Int32" Nullable="false" />
+          <Property Name="Product_Sex_Text" Type="String" MaxLength="40" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="tbl_Product" Relationship="Self.FK_tbl_Product_Product_Sex" FromRole="Product_Sex" ToRole="tbl_Product" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tbl_Admin">
+          <Key>
+            <PropertyRef Name="AdminID" />
+          </Key>
+          <Property Name="AdminID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdminName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AdminPassword" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_Brand">
+          <Key>
+            <PropertyRef Name="Brand_ID" />
+          </Key>
+          <Property Name="Brand_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Brand_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tbl_Product" Relationship="Self.FK_tbl_Product_tbl_Brand" FromRole="tbl_Brand" ToRole="tbl_Product" />
+        </EntityType>
+        <EntityType Name="tbl_Category">
+          <Key>
+            <PropertyRef Name="Product_CategoryID" />
+          </Key>
+          <Property Name="Product_CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Category_Name" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tbl_Product" Relationship="Self.FK_tbl_Product_tbl_Category" FromRole="tbl_Category" ToRole="tbl_Product" />
+        </EntityType>
+        <EntityType Name="tbl_Product">
+          <Key>
+            <PropertyRef Name="Product_ID" />
+          </Key>
+          <Property Name="Product_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Brand_ID" Type="Int32" Nullable="false" />
+          <Property Name="Product_Info" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Product_Color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Product_CategoryID" Type="Int32" />
+          <Property Name="Product_Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Stock" Type="Int32" />
+          <Property Name="Product_Size" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Rating" Type="Double" Nullable="false" />
+          <Property Name="Product_Sex_ID" Type="Int32" Nullable="false" />
+          <Property Name="Total_Sold" Type="Int32" />
+          <NavigationProperty Name="Product_Sex" Relationship="Self.FK_tbl_Product_Product_Sex" FromRole="tbl_Product" ToRole="Product_Sex" />
+          <NavigationProperty Name="tbl_Brand" Relationship="Self.FK_tbl_Product_tbl_Brand" FromRole="tbl_Product" ToRole="tbl_Brand" />
+          <NavigationProperty Name="tbl_Category" Relationship="Self.FK_tbl_Product_tbl_Category" FromRole="tbl_Product" ToRole="tbl_Category" />
+          <Property Name="Image_Path" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="Product_Kid" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_Sex">
+          <Key>
+            <PropertyRef Name="Product_Sex_ID" />
+          </Key>
+          <Property Name="Product_Sex_ID" Type="Int32" Nullable="false" />
+          <Property Name="Sex_Text" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_User">
+          <Key>
+            <PropertyRef Name="User_ID" />
+          </Key>
+          <Property Name="User_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User_Name" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="User_Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="User_Mail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="User_Password" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="User_Address" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="Sex_ID" Type="Int32" />
+          <Property Name="User_Phone" Type="Int32" />
+        </EntityType>
+        <Association Name="FK_tbl_Product_Product_Sex">
+          <End Role="Product_Sex" Type="Self.Product_Sex" Multiplicity="1" />
+          <End Role="tbl_Product" Type="Self.tbl_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product_Sex">
+              <PropertyRef Name="Product_Sex_ID" />
+            </Principal>
+            <Dependent Role="tbl_Product">
+              <PropertyRef Name="Product_Sex_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Product_tbl_Brand">
+          <End Role="tbl_Brand" Type="Self.tbl_Brand" Multiplicity="1" />
+          <End Role="tbl_Product" Type="Self.tbl_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Brand">
+              <PropertyRef Name="Brand_ID" />
+            </Principal>
+            <Dependent Role="tbl_Product">
+              <PropertyRef Name="Brand_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Product_tbl_Category">
+          <End Role="tbl_Category" Type="Self.tbl_Category" Multiplicity="0..1" />
+          <End Role="tbl_Product" Type="Self.tbl_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Category">
+              <PropertyRef Name="Product_CategoryID" />
+            </Principal>
+            <Dependent Role="tbl_Product">
+              <PropertyRef Name="Product_CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="db_ecommerceEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Product_Sex" EntityType="Self.Product_Sex" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="tbl_Admin" EntityType="Self.tbl_Admin" />
+          <EntitySet Name="tbl_Brand" EntityType="Self.tbl_Brand" />
+          <EntitySet Name="tbl_Category" EntityType="Self.tbl_Category" />
+          <EntitySet Name="tbl_Product" EntityType="Self.tbl_Product" />
+          <EntitySet Name="tbl_Sex" EntityType="Self.tbl_Sex" />
+          <EntitySet Name="tbl_User" EntityType="Self.tbl_User" />
+          <AssociationSet Name="FK_tbl_Product_Product_Sex" Association="Self.FK_tbl_Product_Product_Sex">
+            <End Role="Product_Sex" EntitySet="Product_Sex" />
+            <End Role="tbl_Product" EntitySet="tbl_Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Product_tbl_Brand" Association="Self.FK_tbl_Product_tbl_Brand">
+            <End Role="tbl_Brand" EntitySet="tbl_Brand" />
+            <End Role="tbl_Product" EntitySet="tbl_Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Product_tbl_Category" Association="Self.FK_tbl_Product_tbl_Category">
+            <End Role="tbl_Category" EntitySet="tbl_Category" />
+            <End Role="tbl_Product" EntitySet="tbl_Product" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="db_ecommerceModelStoreContainer" CdmEntityContainer="db_ecommerceEntities1">
+          <EntitySetMapping Name="Product_Sex">
+            <EntityTypeMapping TypeName="db_ecommerceModel.Product_Sex">
+              <MappingFragment StoreEntitySet="Product_Sex">
+                <ScalarProperty Name="Product_Sex_ID" ColumnName="Product_Sex_ID" />
+                <ScalarProperty Name="Product_Sex_Text" ColumnName="Product_Sex_Text" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="db_ecommerceModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Admin">
+            <EntityTypeMapping TypeName="db_ecommerceModel.tbl_Admin">
+              <MappingFragment StoreEntitySet="tbl_Admin">
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="AdminName" ColumnName="AdminName" />
+                <ScalarProperty Name="AdminPassword" ColumnName="AdminPassword" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Brand">
+            <EntityTypeMapping TypeName="db_ecommerceModel.tbl_Brand">
+              <MappingFragment StoreEntitySet="tbl_Brand">
+                <ScalarProperty Name="Brand_ID" ColumnName="Brand_ID" />
+                <ScalarProperty Name="Brand_Name" ColumnName="Brand_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Category">
+            <EntityTypeMapping TypeName="db_ecommerceModel.tbl_Category">
+              <MappingFragment StoreEntitySet="tbl_Category">
+                <ScalarProperty Name="Product_CategoryID" ColumnName="Product_CategoryID" />
+                <ScalarProperty Name="Category_Name" ColumnName="Category_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Product">
+            <EntityTypeMapping TypeName="db_ecommerceModel.tbl_Product">
+              <MappingFragment StoreEntitySet="tbl_Product">
+                <ScalarProperty Name="Product_Kid" ColumnName="Product_Kid" />
+                <ScalarProperty Name="Image_Path" ColumnName="Image_Path" />
+                <ScalarProperty Name="Product_ID" ColumnName="Product_ID" />
+                <ScalarProperty Name="Brand_ID" ColumnName="Brand_ID" />
+                <ScalarProperty Name="Product_Info" ColumnName="Product_Info" />
+                <ScalarProperty Name="Product_Color" ColumnName="Product_Color" />
+                <ScalarProperty Name="Product_CategoryID" ColumnName="Product_CategoryID" />
+                <ScalarProperty Name="Product_Price" ColumnName="Product_Price" />
+                <ScalarProperty Name="Stock" ColumnName="Stock" />
+                <ScalarProperty Name="Product_Size" ColumnName="Product_Size" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="Product_Sex_ID" ColumnName="Product_Sex_ID" />
+                <ScalarProperty Name="Total_Sold" ColumnName="Total_Sold" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Sex">
+            <EntityTypeMapping TypeName="db_ecommerceModel.tbl_Sex">
+              <MappingFragment StoreEntitySet="tbl_Sex">
+                <ScalarProperty Name="Product_Sex_ID" ColumnName="Product_Sex_ID" />
+                <ScalarProperty Name="Sex_Text" ColumnName="Sex_Text" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_User">
+            <EntityTypeMapping TypeName="db_ecommerceModel.tbl_User">
+              <MappingFragment StoreEntitySet="tbl_User">
+                <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+                <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+                <ScalarProperty Name="User_Surname" ColumnName="User_Surname" />
+                <ScalarProperty Name="User_Mail" ColumnName="User_Mail" />
+                <ScalarProperty Name="User_Password" ColumnName="User_Password" />
+                <ScalarProperty Name="User_Address" ColumnName="User_Address" />
+                <ScalarProperty Name="Sex_ID" ColumnName="Sex_ID" />
+                <ScalarProperty Name="User_Phone" ColumnName="User_Phone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

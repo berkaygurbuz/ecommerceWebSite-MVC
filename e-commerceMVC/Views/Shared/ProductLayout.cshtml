@@ -1,0 +1,235 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+
+
+    <meta charset="utf-8" />
+    <title></title>
+    <!-- Boostrap CDN-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- FontAwosome CDN-->
+    <script src="https://kit.fontawesome.com/3c2bc376e8.js" crossorigin="anonymous"></script>
+    <!-- Google Font-->
+    <link href="https://fonts.googleapis.com/css?family=Bitter&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:300&display=swap" rel="stylesheet">
+
+    <!-- Slick Slider-->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <!--Custom stylesheet-->
+    <link href="~/Content/StyleSheet1.css" rel="stylesheet" />
+</head>
+<body>
+
+    <!-- Header-->
+    <header>
+        <div class="container-fluid " style="background-color:#525252;">
+            <div class="row py-2">
+                <div class="col text-center">
+                    <img src="~/assets/logoson.png" />
+
+                </div>
+                <div class="col-auto mt-4 mb-1 ">
+
+                    <a href="https://www.github.com/berkaygurbuz"><i class="fas fa-shopping-basket my-fa mr-2"></i></a>
+                    <a href="~/Home/Login"><i class="fas fa-user-circle my-fa"></i></a>
+
+
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+    <!-- NavBar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-lignt my-color">
+
+        <button class="navbar-toggler my-toggler" style="margin-left:auto !important" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto" style="margin-left:auto !important">
+                <li class="nav-item active">
+                    @Html.ActionLink("Home", "Index", null, null, new { @class = "nav-link" })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("Men", "Men", null, null, new { @class = "nav-link" })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("Women", "Women", null, null, new { @class = "nav-link" })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("Kids", "Kids", null, null, new { @class = "nav-link" })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("BestSellers", "BestSellers", null, null, new { @class = "nav-link" })
+                </li>
+
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+            </form>
+        </div>
+    </nav>
+
+    <!-- BODY CONTENT (VIEW) -->
+
+
+    @RenderBody()
+
+
+
+    <!-- Footer -->
+    <footer class="page-footer font-small footer-color lighten-3 pt-4 my-footer">
+
+        <!-- Footer Links -->
+        <div class="container text-center text-md-left">
+
+            <!-- Grid row -->
+            <div class="row">
+
+                <!-- Grid column -->
+                <div class="col-md-4 col-lg-3 mr-auto my-md-4 my-0 mt-4 mb-1">
+
+                    <!-- Content -->
+                    <h5 class="font-weight-bold text-uppercase mb-4">ABOUT</h5>
+
+                    <p class="footer-font">
+                        The start of a new season is the perfect excuse to take your looks to the next level. Opt for loose-fitting and comfortable trousers, must-haves in every variation you can possibly imagine.
+                        <br />
+                        <br />
+                        Combine them with plush garments, the fabric your wardrobe simply can’t do without. Chunky sole trainers are also a safe bet, as the more casual, sporty outfits are still on trend.
+                    </p>
+
+                </div>
+                <!-- Grid column -->
+
+                <hr class="clearfix w-100 d-md-none">
+
+                <!-- Grid column -->
+                <div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+                    <!-- Links -->
+                    <h5 class="font-weight-bold text-uppercase mb-4">CATEGORIES</h5>
+
+                    <ul class="list-unstyled my-categories">
+                        <li>
+                            <p>
+                                <a href="#!">MEN</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="#!">WOMEN</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="#!">KIDS</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <a href="#!">BESTSELLERS</a>
+                            </p>
+                        </li>
+                    </ul>
+
+                </div>
+                <!-- Grid column -->
+
+                <hr class="clearfix w-100 d-md-none">
+
+                <!-- Grid column -->
+                <div class="col-md-4 col-lg-3 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+                    <!-- Contact details -->
+                    <h5 class="font-weight-bold text-uppercase  mb-4">Address</h5>
+
+                    <ul class="list-unstyled my-categories">
+                        <li>
+                            <p>
+                                <i class="fas fa-home mr-3"></i> New York, NY 10012, US
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <i class="fas fa-envelope mr-3"></i> stables@shopping.com
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <i class="fas fa-phone mr-3"></i> + 01 234 567 88
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <i class="fas fa-print mr-3"></i> + 01 234 567 89
+                            </p>
+                        </li>
+                    </ul>
+
+                </div>
+                <!-- Grid column -->
+
+                <hr class="clearfix w-100 d-md-none">
+
+                <!-- Grid column -->
+                <div class="col-md-2 col-lg-2 text-center mx-auto my-4">
+
+                    <!-- Social buttons -->
+                    <h5 class="font-weight-bold text-uppercase mb-4">Follow Us</h5>
+
+                    <!-- Facebook -->
+                    <a type="button" class="btn btn-fb rounded-circle mt-3 my-shadow ">
+                        <i class="fab fa-facebook-f my-fb icon-4x"></i>
+                    </a>
+                    <!-- Twitter -->
+                    <a type="button" class="btn btn-tw rounded-circle mt-3 my-shadow ">
+                        <i class="fab fa-twitter my-twitter"></i>
+                    </a>
+                    <!-- Google +-->
+                    <a type="button" class="btn btn-gplus rounded-circle mt-3 my-shadow ">
+                        <i class="fab fa-google-plus-g my-google "></i>
+                    </a>
+                    <!-- Dribbble -->
+                    <a type="button" class="btn btn-dribble rounded-circle mt-3 my-shadow">
+                        <i class="fab fa-dribbble my-dribble"></i>
+                    </a>
+
+                </div>
+                <!-- Grid column -->
+
+            </div>
+            <!-- Grid row -->
+
+        </div>
+        <!-- Footer Links -->
+        <!-- Copyright -->
+        <div class="footer-copyright my-copyright text-center py-3">
+            © 2020 Copyright
+            <a href="https://github.com/berkaygurbuz"> Berkay Gürbüz</a>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="~/Scripts/my-javascript.js"></script>
+</body>
+</html>

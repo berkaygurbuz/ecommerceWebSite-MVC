@@ -1,0 +1,43 @@
+﻿@model e_commerceMVC.Models.Entity.tbl_Category
+@{
+    ViewBag.Title = "UpdateCategories";
+    Layout = "~/Views/Shared/_AdminPanelLayout.cshtml";
+}
+
+<h2 class="text-center mt-3">Update Categories</h2>
+
+
+@using (Html.BeginForm("AdminUpdateCategories", "Admin", FormMethod.Post))
+{
+
+    <table class="table table-striped table-dark rounded-lg w-50 mx-auto">
+        <tr>
+
+            <td>
+                @Html.LabelFor(m => m.Product_CategoryID)
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.Product_CategoryID)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.Category_Name)
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.Category_Name)
+            </td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td>
+                <div>
+                    <button class="btn btn-outline-danger"> UPDATE </button>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+
+}
